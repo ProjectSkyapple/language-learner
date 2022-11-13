@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <script src="bootstrap.bundle.min.js / bootstrap.bundle.js" defer></script>
+  <script src="search-from-upload.js" defer></script>
+  <title>Upload</title>
+
+</head>
+<body>
+  <div class="container-fluid"></div>
+  <nav class="navbar navbar-dark bg-dark"">
+      <a class="navbar-brand" href="upload-page.html">Upload</a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="button" id="search-submit-btn">Search</button>
+      </form>
+  </nav>
+  </div>
+  <div class="container-fluid">
+      <div class="row">
+       
+        <div class="dropdown col">
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          
+          </div>
+        </div>
+    
+          <div class="dropdown col">
+            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Level
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">English</a>
+              <a class="dropdown-item" href="#">French</a>
+              <a class="dropdown-item" href="#">Spanish</a>
+          
+            </div>
+            </div>
+            </div>
+            <div class="mb-1">
+              <textarea class="form-control" id="storyContent" rows="1" placeholder="Title"></textarea>
+            </div>
+          <div class="mb-12">
+      <textarea class="form-control" id="storyContent" rows="12" placeholder="Enter your story"></textarea>
+    <button class="btn btn-primary" type="button">Submit</button>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+</body>
+</html>
