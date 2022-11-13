@@ -1,11 +1,12 @@
+window.addEventListener('load', () => {
+    createCard('Test Title', 'English', 'Advanced', 'This is a test');
+})
+
 const searchButton = document.querySelector('#search-submit-btn');
 
-window.addEventListener( 'load', () => {
-     createCard('Test','English','Beginner','This is just a test');
-     createCard('Test','English','Beginner','This is just a test');
-     createCard('Test','English','Beginner','This is just a test');
-    }
-)
+searchButton.addEventListener('click', () => {
+    window.open('results.html');
+})
 
 function createCard(name, language, level, contentPreview){
 
@@ -14,9 +15,8 @@ function createCard(name, language, level, contentPreview){
     card.setAttribute('width', '18rem');
 
     const cardBody = document.createElement('div');
-    const cardTitle = document.createElement('a');
+    const cardTitle = document.createElement('h5');
     cardTitle.textContent = name;
-    cardTitle.setAttribute('href', 'story-view.html');
     const cardSubtitle = document.createElement('h6');
     cardSubtitle.className = 'card-subtitle mb2 text-muted';
     cardSubtitle.textContent = `${level} ${language}`;
@@ -33,3 +33,4 @@ function createCard(name, language, level, contentPreview){
 
     console.log('card created');
 }
+
