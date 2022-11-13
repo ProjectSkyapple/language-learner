@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible">
@@ -8,47 +8,87 @@
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
   <script src="bootstrap.bundle.min.js / bootstrap.bundle.js" defer></script>
   <script src="search-from-upload.js" defer></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <title>Upload</title>
 
 </head>
+
 <body>
   <div class="container-fluid"></div>
-  <nav class="navbar navbar-dark bg-dark"">
-      <a class="navbar-brand" href="upload-page.html">Upload a story</a>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="button" id="search-submit-btn">Search</button>
-      </form>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="upload-page.html">Upload your story</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="button" id="search-submit-btn">Search</button>
+        </form>
+      </div>
+    </div>
   </nav>
   </div>
   <div class="container-fluid" style="padding: 10px;">
-      <div class="row">
-          <select class="col-6" name="language" id="languages" style="padding-left: 10px">
-            <option value="name" disabled>Language</option>
-              <option value="english" >English</option>
-              <option value="french">French</option>
-              <option value="spanish">Spainsh</option>
-              <option value="chinese">Chinese</option>
-              <option value="swedish">Swedish</option>
-          </select>
-          <select class="col-6" name="level" id="level" style="padding-right: 10px;">
-            <option value="name" disabled>Level</option>
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="advanced">Advanced</option>
-          </select>
-        </form>
-            </div>
-            <div class="mb-1">
-              <textarea class="form-control" id="storyContent" rows="1" placeholder="Title"></textarea>
-            </div>
-          <div class="mb-12">
-      <textarea class="form-control" id="storyContent" rows="12" placeholder="Enter your story"></textarea>
-    <button class="btn btn-primary" type="button">Submit</button>
+    <div class="row">
+      <select class="col-6" name="language" id="languages" style="padding-left: 10px">
+        <option value="name" disabled>Language</option>
+        <option value="english">English</option>
+        <option value="french">French</option>
+        <option value="spanish">Spainsh</option>
+        <option value="chinese">Chinese</option>
+        <option value="swedish">Swedish</option>
+      </select>
+      <select class="col-6" name="level" id="level" style="padding-right: 10px;">
+        <option value="name" disabled>Level</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
     </div>
-    </div>
-    
-    </div>
+    <form id="contactForm">
+      <div class="mb-1">
+        <textarea class="form-control" id="title" rows="1" placeholder="Title"></textarea>
+      </div>
+      <div class="mb-12">
+        <textarea class="form-control" id="storyContent" rows="12" placeholder="Enter your story"></textarea>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
   </div>
+
+  </div>
+  </div>
+
+  <script>
+    var thisForm = document.getElementById("contactForm");
+    const headers_ = {
+      'Authorization': 'Bearer keyJkBNLRleuG08RI',
+      'Content-Type': 'application/json'
+    };
+    // When the form is submitted...
+    thisForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      // POST the data
+      let data = {
+        "fields": {
+          "Notes": document.getElementById("title").value
+        }
+      };
+      let headerInfo = { headers: headers_ };
+      axios.post("https://api.airtable.com/v0/app3Vz9dBticvev18/Stories", data, headerInfo);
+      alert("Your story has been successfully uploaded!");
+      thisForm.reset();
+      window.location.replace("index.html");
+    })
+  </script>
 </body>
+
 </html>
