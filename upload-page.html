@@ -6,11 +6,48 @@
   <meta http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-  <script src="bootstrap.bundle.min.js / bootstrap.bundle.js" defer></script>
+  <script src="bootstrap.bundle.min.js/bootstrap.bundle.js" defer></script>
   <script src="search-from-upload.js" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <title>Upload</title>
+  <style>
+    textarea {
 
+      width: 100%;
+
+
+    }
+
+    .uploadComponent {
+
+      margin: 15px;
+      text-align: center;
+
+    }
+
+    .custom-select {
+
+      width: 50%;
+
+
+    }
+
+    .titleUploadComponent {
+      height: 30px;
+    }
+
+    .storyUploadComponent {
+      height: 150px;
+    }
+
+    .mainSubmit {
+
+
+      margin: 15px;
+
+
+    }
+  </style>
 </head>
 
 <body>
@@ -35,31 +72,35 @@
       </div>
     </div>
   </nav>
-  </div>
-  <div class="container-fluid" style="padding: 10px;">
+  <div class="uploadComponent" class="container-fluid">
     <div class="row">
-      <select class="col-6" name="language" id="languages" style="padding-left: 10px">
-        <option value="name" disabled>Language</option>
-        <option value="english">English</option>
-        <option value="french">French</option>
-        <option value="spanish">Spainsh</option>
-        <option value="chinese">Chinese</option>
-        <option value="swedish">Swedish</option>
-      </select>
-      <select class="col-6" name="level" id="level" style="padding-right: 10px;">
-        <option value="name" disabled>Level</option>
-        <option value="beginner">Beginner</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
-      </select>
+      <div class="custom-select">
+        <select class="uploadComponent" class="col-6" name="language" id="languages">
+          <option value="name" disabled>Language</option>
+          <option value="English">English</option>
+          <option value="French">French</option>
+          <option value="Spanish">Spanish</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Swedish">Swedish</option>
+        </select>
+      </div>
+      <div class="custom-select">
+        <select class="uploadComponent" class="col-6" name="level" id="level">
+          <option value="name" disabled>Level</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
     </div>
-    <form id="contactForm">
+    <form class="uploadComponent" id="contactForm">
       <div class="mb-1">
-        <textarea class="form-control" id="title" rows="1" placeholder="Title"></textarea>
+        <textarea class="titleUploadComponent" class="form-control" id="title" rows="1" placeholder="Title"></textarea>
       </div>
       <div class="mb-12">
-        <textarea class="form-control" id="storyContent" rows="12" placeholder="Enter your story"></textarea>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <textarea class="storyUploadComponent" class="form-control" id="storyContent" rows="1"
+          placeholder="Enter your story"></textarea>
+        <button class="btn btn-primary" type="submit" class="mainSubmit">Submit</button>
       </div>
     </form>
   </div>
@@ -79,7 +120,11 @@
       // POST the data
       let data = {
         "fields": {
-          "Notes": document.getElementById("title").value
+          "Title": document.getElementById("title").value,
+          "Story": document.getElementById("storyContent").value,
+          "Language": document.getElementById("languages").value,
+          "Difficulty": document.getElementById("level").value
+
         }
       };
       let headerInfo = { headers: headers_ };
