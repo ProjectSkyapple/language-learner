@@ -14,8 +14,9 @@ function createCard(name, language, level, contentPreview){
     card.setAttribute('width', '18rem');
 
     const cardBody = document.createElement('div');
-    const cardTitle = document.createElement('h5');
+    const cardTitle = document.createElement('a');
     cardTitle.textContent = name;
+    cardTitle.setAttribute('href', 'story-view.html');
     const cardSubtitle = document.createElement('h6');
     cardSubtitle.className = 'card-subtitle mb2 text-muted';
     cardSubtitle.textContent = `${level} ${language}`;

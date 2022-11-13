@@ -2,6 +2,12 @@ window.addEventListener('load', () => {
     createCard('Test Title', 'English', 'Advanced', 'This is a test');
 })
 
+const searchButton = document.querySelector('#search-submit-btn');
+
+searchButton.addEventListener('click', () => {
+    window.open('results.html');
+})
+
 function createCard(name, language, level, contentPreview){
 
     const card = document.createElement('div');
@@ -27,3 +33,4 @@ function createCard(name, language, level, contentPreview){
 
     console.log('card created');
 }
+
