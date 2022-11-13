@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <form id="contactForm">
+        <div>
+            <input type="text" id="Name" name="Name" placeholder="Your Name">
+        </div>
+        <div>
+            <input type="text" name="EmailAddress" id="EmailAddress" placeholder="Your Email">
+        </div>
+        <div>
+            <textarea id="Message" name="Message" cols="30" rows="6" placeholder="Your Message"></textarea>
+            <div>
+                <input id="submit" name="submit" type="submit" value="Send Message">
+            </div>
+        </div>
+    </form>
+
+    <script>
+        var thisForm = document.getElementById("contactForm");
+        const headers_ = {
+            'Authorization': 'Bearer keyJkBNLRleuG08RI',
+            'Content-Type': 'application/json'
+        };
+        // When the form is submitted...
+        thisForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // POST the data
+            let data = {
+                "fields": {
+                    "Notes": document.getElementById("Name").value
+                }
+            };
+            let headerInfo = { headers: headers_ };
+            axios.post("https://api.airtable.com/v0/app3Vz9dBticvev18/Stories", data, headerInfo);
+        })
+    </script>
+</body>
+
+</html>

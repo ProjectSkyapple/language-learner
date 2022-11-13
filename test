@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<head></head>
+
+<body>
+    <input type="text">
+    <button id="uploadText" onclick="upload()">Record your stories here.</button>
+    <p id="display"></p>
+    <script>
+        function upload() {
+
+            var x = document.getElementById("uploadText").value;
+            document.getElementById("display").innerHTML = x;
+
+        }
+    </script>
+</body>
+
+</html>

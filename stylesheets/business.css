@@ -51,7 +51,7 @@
   }
 
   #coverSection {
-    background-image: url("../assets/coverBackground-business.png");
+    color: #eee;
     background-size: cover;
     background-position: center;
   }
